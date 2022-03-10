@@ -3,5 +3,19 @@
 - version: v1alpha1
   group: postgres.krestomat.io
   kind: Postgres
+  blacklist:
+    # issue seing other secrets as dependant resources and triggering reconciliation (at least in logs)
+    - group: ""
+      version: v1
+      kind: Secret
+    # issue seing other config maps as dependant resources and triggering reconciliation (at least in logs)
+    - group: ""
+      version: v1
+      kind: ConfigMap
+  finalizer:
+    name: postgres.krestomat.io/finalizer
+    vars:
+      cr_state: absent
   playbook: playbooks/postgres.yml
+
 #+kubebuilder:scaffold:watch

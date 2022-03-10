@@ -1,7 +1,7 @@
 # Adds namespace to all resources.
-namespace: osdk-test
+namespace: postgres-test
 
-namePrefix: osdk-
+namePrefix: postgres-
 
 # Labels to add to all resources and selectors.
 #commonLabels:
@@ -11,7 +11,7 @@ patchesStrategicMerge:
 - manager_image.yaml
 - debug_logs_patch.yaml
 - ../default/manager_auth_proxy_patch.yaml
-
+- ../manager/profile_tasks_patch.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
@@ -21,3 +21,10 @@ resources:
 images:
 - name: testing
   newName: testing-operator
+patches:
+- patch: |-
+    - op: add
+      path: /spec/template/spec/containers/0/args/-
+      value: --zap-devel=true
+  target:
+    kind: Deployment

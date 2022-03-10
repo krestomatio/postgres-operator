@@ -1,11 +1,12 @@
 apiVersion: postgres.krestomat.io/v1alpha1
 kind: Postgres
 metadata:
-  name: postgres-sample
+  name: readreplicas-sample
 spec:
   # postgres_mode: one of 'standalone', 'readreplicas'
   # by default 'standalone' is 1 one primery only and 'readreplicas' 1 replica
-  postgres_mode: 'standalone'
+  postgres_mode: 'readreplicas'
+  postgres_readreplicas_size: 1
 
   # Assign 1Gi to each persistent volume: primary and replicas
   postgres_pvc_data_size: 1Gi
@@ -13,3 +14,7 @@ spec:
   # Add extra pgbouncer config
   pgbouncer_extra_config: |
     listen_backlog = 256
+
+  # Add extra pgbouncer config to readonly service
+  pgbouncer_readonly_extra_config: |
+    listen_backlog = 512
