@@ -37,4 +37,21 @@ rules:
       - patch
       - update
       - watch
+  ##
+  ## Rules for postgres.krestomat.io/v1alpha1, Kind: Postgres
+  ##
+  - apiGroups:
+      - postgres.krestomat.io
+    resources:
+      - postgres
+      - postgres/status
+      - postgres/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
 #+kubebuilder:scaffold:rules
