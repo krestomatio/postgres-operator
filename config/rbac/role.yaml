@@ -10,10 +10,13 @@ rules:
   - apiGroups:
       - ""
     resources:
+      - configmaps
       - secrets
       - pods
       - pods/exec
       - pods/log
+      - persistentvolumeclaims
+      - services
     verbs:
       - create
       - delete
@@ -26,8 +29,6 @@ rules:
       - apps
     resources:
       - deployments
-      - daemonsets
-      - replicasets
       - statefulsets
     verbs:
       - create
