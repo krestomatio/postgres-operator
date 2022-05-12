@@ -38,6 +38,33 @@ spec:
             type: object
             x-kubernetes-preserve-unknown-fields: true
         type: object
+    additionalPrinterColumns:
+    - description: Age of the resource
+      jsonPath: .metadata.creationTimestamp
+      name: AGE
+      type: date
+    - description: Site status such as Unknown/SettingUp/Ready/Failed/Terminating
+        etc
+      jsonPath: .status.state
+      name: STATUS
+      type: string
+    - description: Time of latest transition
+      jsonPath: .status.conditions[?(@.type=='Ready')].lastTransitionTime
+      name: SINCE
+      type: date
+    - description: Postgres CR mode: one of 'standalone', 'readreplicas'
+        etc
+      jsonPath: .spec.postgresMode
+      name: MODE
+      type: string
+    - description: Generated service name to access primary
+      jsonPath: .status.service
+      name: SERVICE
+      type: string
+    - description: Generated service name to access readonly replicas when 'readreplicas' mode
+      jsonPath: .status.serviceReadOnly
+      name: SERVICE-READONLY
+      type: string
     served: true
     storage: true
     subresources:
