@@ -1,20 +1,22 @@
+### camelCase
+---
 apiVersion: postgres.krestomat.io/v1alpha1
 kind: Postgres
 metadata:
   name: readreplicas-sample
 spec:
-  # postgres_mode: one of 'standalone', 'readreplicas'
-  # by default 'standalone' is 1 one primery only and 'readreplicas' 1 replica
-  postgres_mode: 'readreplicas'
-  postgres_readreplicas_size: 1
+  # postgresMode: one of 'standalone', 'readreplicas'
+  # by default 'standalone' is 1 one primary only, while 'readreplicas' is 1 primary and 1 replica
+  postgresMode: 'standalone'
+  postgresReadreplicasSize: 1
 
   # Assign 1Gi to each persistent volume: primary and replicas
-  postgres_pvc_data_size: 1Gi
+  postgresPvcDataSize: 1Gi
 
   # Add extra pgbouncer config
-  pgbouncer_extra_config: |
+  pgbouncerExtraConfig: |
     listen_backlog = 256
 
   # Add extra pgbouncer config to readonly service
-  pgbouncer_readonly_extra_config: |
+  pgbouncerReadonlyExtraConfig: |
     listen_backlog = 512
