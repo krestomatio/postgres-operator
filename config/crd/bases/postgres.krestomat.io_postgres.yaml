@@ -52,8 +52,7 @@ spec:
       jsonPath: .status.conditions[?(@.type=='Ready')].lastTransitionTime
       name: SINCE
       type: date
-    - description: Postgres CR mode: one of 'standalone', 'readreplicas'
-        etc
+    - description: "Postgres CR mode: one of 'standalone', 'readreplicas'"
       jsonPath: .spec.postgresMode
       name: MODE
       type: string
