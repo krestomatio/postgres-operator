@@ -7,7 +7,7 @@ metadata:
 spec:
   # postgresMode: one of 'standalone', 'readreplicas'
   # by default 'standalone' is 1 one primary only, while 'readreplicas' is 1 primary and 1 replica
-  postgresMode: 'standalone'
+  postgresMode: 'readreplicas'
   postgresReadreplicasSize: 1
 
   # Assign 1Gi to each persistent volume: primary and replicas
