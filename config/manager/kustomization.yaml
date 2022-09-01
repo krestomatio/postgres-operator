@@ -16,4 +16,4 @@ kind: Kustomization
 images:
 - name: controller
   newName: quay.io/krestomatio/postgres-operator
-  newTag: 0.1.15
+  newTag: 0.1.16
