@@ -44,7 +44,7 @@ rules:
   - apiGroups:
       - autoscaling.k8s.io
     resources:
-      - VerticalPodAutoscaler
+      - verticalpodautoscalers
     verbs:
       - create
       - delete
