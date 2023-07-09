@@ -39,6 +39,21 @@ rules:
       - update
       - watch
   ##
+  ## Rules for pod autoscalers
+  ##
+  - apiGroups:
+      - autoscaling.k8s.io
+    resources:
+      - VerticalPodAutoscaler
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  ##
   ## Rules for postgres.krestomat.io/v1alpha1, Kind: Postgres
   ##
   - apiGroups:
