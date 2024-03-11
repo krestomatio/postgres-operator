@@ -9,8 +9,17 @@ spec:
   # by default 'standalone' is 1 one primary only, while 'readreplicas' is 1 primary and 1 replica
   postgresMode: 'standalone'
 
-  # Assign 1Gi to each persistent volume: primary and replicas
-  postgresPvcDataSize: 1Gi
+  # Autoexpansion: if storage available is less than 20% or 'postgresPvcDataAutoexpansionIncrementGib', adjust PVC storage size according to 'postgresPvcDataAutoexpansionIncrementGib' and 'postgresPvcDataAutoexpansionCapGib':
+  # * Kubernetes cluster and PVC must support expansion of volumes
+  # * In older cluster versions, pods require restart when autoexpanding if Kubernetes feature gate
+  #   'ExpandInUsePersistentVolumes' is false. See:
+  #   https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/
+  ## Enable autoexpansion
+  postgresPvcDataAutoexpansion: true
+  ## Every time autoexpansion is required, increment 5 GiB
+  postgresPvcDataAutoexpansionIncrementGib: 5
+  ## But no more than 25 GiB
+  postgresPvcDataAutoexpansionCapGib: 25
 
   # Add extra pgbouncer config
   pgbouncerExtraConfig: |
