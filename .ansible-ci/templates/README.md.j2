@@ -29,7 +29,7 @@ kubectl apply -k https://github.com/krestomatio/postgres-operator/config/default
 ```
 
 2. **Configure Postgres Instance:**
-- Download and modify [this sample](https://raw.githubusercontent.com/krestomatio/postgres-operator/v{{ operator_version }}/config/samples/postgres_v1alpha1_postgres.yaml) file to reflect your specific database connection details and any additional configuration options. This file defines the desired state for your Postgres instance.
+- Download and modify [this sample](https://raw.githubusercontent.com/krestomatio/postgres-operator/v{{ operator_version }}/config/samples/postgres_v1alpha1_postgres.yaml) file to reflect your specific instance. This file defines the desired configuration for your KeyDB deployment, including the chosen mode (standalone or readreplicas).
 ```bash
 curl -sSL 'https://raw.githubusercontent.com/krestomatio/postgres-operator/v{{ operator_version }}/config/samples/postgres_v1alpha1_postgres.yaml' -o postgres_v1alpha1_postgres.yaml
 # modify postgres_v1alpha1_postgres.yaml
