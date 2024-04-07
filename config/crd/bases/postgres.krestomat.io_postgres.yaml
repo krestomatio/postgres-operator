@@ -10,6 +10,9 @@ spec:
     listKind: PostgresList
     plural: postgres
     singular: postgres
+    categories:
+    - lms
+    - database
   scope: Namespaced
   versions:
   - name: v1alpha1
