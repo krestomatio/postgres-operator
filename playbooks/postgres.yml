@@ -6,5 +6,6 @@
     - kubernetes.core
     - operator_sdk.util
   tasks:
-    - import_role:
+    - name: import postgres role
+      import_role:
         name: krestomatio.k8s.v1alpha1.database.postgres
