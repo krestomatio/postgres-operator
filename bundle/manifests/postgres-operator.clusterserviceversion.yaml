@@ -19,7 +19,7 @@ metadata:
       ]
     capabilities: Seamless Upgrades
     categories: Application Runtime
-    createdAt: "2024-04-07T22:20:53Z"
+    createdAt: "2024-04-07T22:46:39Z"
     description: |-
       This operator simplifies Postgres deployments in Kubernetes by leveraging
       the Ansible Operator SDK for automation
@@ -307,6 +307,12 @@ spec:
   links:
   - name: Postgres Operator
     url: https://krestomatio.com/docs/postgres-operator
+  - name: Postgres Image
+    url: https://krestomatio.com/docs/container-builder/postgres
+  - name: Postgres Repo
+    url: https://git.postgresql.org/gitweb/?p=postgresql.git
+  - name: Postgres Docs
+    url: https://wiki.postgresql.org
   maintainers:
   - email: jobcespedes@krestomatio.com
     name: Job Cespedes Ortiz
