@@ -1,21 +1,48 @@
----
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
+  creationTimestamp: null
   name: postgres.postgres.krestomat.io
 spec:
   group: postgres.krestomat.io
   names:
+    categories:
+    - lms
+    - database
     kind: Postgres
     listKind: PostgresList
     plural: postgres
     singular: postgres
-    categories:
-    - lms
-    - database
   scope: Namespaced
   versions:
-  - name: v1alpha1
+  - additionalPrinterColumns:
+    - description: Age of the resource
+      jsonPath: .metadata.creationTimestamp
+      name: AGE
+      type: date
+    - description: Site status such as Unknown/SettingUp/Ready/Failed/Terminating
+        etc
+      jsonPath: .status.state
+      name: STATUS
+      type: string
+    - description: Time of latest transition
+      jsonPath: .status.conditions[?(@.type=='Ready')].lastTransitionTime
+      name: SINCE
+      type: date
+    - description: 'Postgres CR mode: one of ''standalone'', ''readreplicas'''
+      jsonPath: .spec.postgresMode
+      name: MODE
+      type: string
+    - description: Generated service name to access primary
+      jsonPath: .status.service
+      name: SERVICE
+      type: string
+    - description: Generated service name to access readonly replicas when 'readreplicas'
+        mode
+      jsonPath: .status.serviceReadOnly
+      name: SERVICE-READONLY
+      type: string
+    name: v1alpha1
     schema:
       openAPIV3Schema:
         description: Postgres is the Schema for the postgres API
@@ -41,33 +68,13 @@ spec:
             type: object
             x-kubernetes-preserve-unknown-fields: true
         type: object
-    additionalPrinterColumns:
-    - description: Age of the resource
-      jsonPath: .metadata.creationTimestamp
-      name: AGE
-      type: date
-    - description: Site status such as Unknown/SettingUp/Ready/Failed/Terminating
-        etc
-      jsonPath: .status.state
-      name: STATUS
-      type: string
-    - description: Time of latest transition
-      jsonPath: .status.conditions[?(@.type=='Ready')].lastTransitionTime
-      name: SINCE
-      type: date
-    - description: "Postgres CR mode: one of 'standalone', 'readreplicas'"
-      jsonPath: .spec.postgresMode
-      name: MODE
-      type: string
-    - description: Generated service name to access primary
-      jsonPath: .status.service
-      name: SERVICE
-      type: string
-    - description: Generated service name to access readonly replicas when 'readreplicas' mode
-      jsonPath: .status.serviceReadOnly
-      name: SERVICE-READONLY
-      type: string
     served: true
     storage: true
     subresources:
       status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: null
+  storedVersions: null
