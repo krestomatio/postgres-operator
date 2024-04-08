@@ -18,8 +18,8 @@ metadata:
         }
       ]
     capabilities: Seamless Upgrades
-    categories: Application Runtime
-    createdAt: "2024-04-07T22:56:26Z"
+    categories: Database
+    createdAt: "2024-04-08T01:40:26Z"
     description: |-
       This operator simplifies Postgres deployments in Kubernetes by leveraging
       the Ansible Operator SDK for automation
