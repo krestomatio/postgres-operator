@@ -19,7 +19,8 @@ metadata:
       ]
     capabilities: Seamless Upgrades
     categories: Database
-    createdAt: "2024-04-08T01:51:19Z"
+    containerImage: quay.io/krestomatio/postgres-operator:0.3.6
+    createdAt: "2024-04-08T04:28:43Z"
     description: |-
       This operator simplifies Postgres deployments in Kubernetes by leveraging
       the Ansible Operator SDK for automation
