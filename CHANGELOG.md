@@ -2,4 +2,4 @@
 
 ### Documentation
 
-* update bundle links (Job Céspedes Ortiz)
+* update operatorhub category (Job Céspedes Ortiz)
