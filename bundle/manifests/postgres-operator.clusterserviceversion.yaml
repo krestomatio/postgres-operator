@@ -19,8 +19,8 @@ metadata:
       ]
     capabilities: Seamless Upgrades
     categories: Database
-    containerImage: quay.io/krestomatio/postgres-operator:0.3.7
-    createdAt: "2024-04-08T04:33:28Z"
+    containerImage: quay.io/krestomatio/postgres-operator:0.3.8
+    createdAt: "2024-04-09T22:33:31Z"
     description: |-
       This operator simplifies Postgres deployments in Kubernetes by leveraging
       the Ansible Operator SDK for automation
@@ -31,7 +31,7 @@ metadata:
     operatorframework.io/arch.amd64: supported
     operatorframework.io/arch.arm64: supported
     operatorframework.io/os.linux: supported
-  name: postgres-operator.v0.3.7
+  name: postgres-operator.v0.3.8
   namespace: placeholder
 spec:
   apiservicedefinitions: {}
@@ -228,7 +228,7 @@ spec:
                 env:
                 - name: ANSIBLE_GATHERING
                   value: explicit
-                image: quay.io/krestomatio/postgres-operator:0.3.7
+                image: quay.io/krestomatio/postgres-operator:0.3.8
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -322,4 +322,4 @@ spec:
   provider:
     name: Krestomatio
     url: https://krestomatio.com
-  version: 0.3.7
+  version: 0.3.8
