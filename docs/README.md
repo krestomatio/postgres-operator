@@ -70,7 +70,7 @@ kubectl delete -k https://github.com/krestomatio/postgres-operator/config/defaul
 
 ## Configuration
 
-Postgres custom resource (CR) can be configure via its spec field. Postgres CR spec supports all the the variables in [v1alpha1.database.postgres ansible role](https://krestomatio.com/docs/krestomatio.k8s/roles/v1alpha1.database.postgres/defaults/main/postgres) as fields. These variables can be specified directly in the Postgres CR YAML manifest file, allowing for customization of the Postgres instance during deployment. Refer to the official [v1alpha1.database.postgres ansible role documentation](https://krestomatio.com/docs/krestomatio.k8s/roles/v1alpha1.database.postgres/) for a comprehensive list of supported fields.
+Postgres custom resource (CR) can be configure via its spec field. Postgres CR spec supports all the the variables in [v1alpha1.database.postgres ansible role](https://krestomatio.com/docs/ansible-collection-k8s/roles/v1alpha1.database.postgres/defaults/main/postgres) as fields. These variables can be specified directly in the Postgres CR YAML manifest file, allowing for customization of the Postgres instance during deployment. Refer to the official [v1alpha1.database.postgres ansible role documentation](https://krestomatio.com/docs/ansible-collection-k8s/roles/v1alpha1.database.postgres/) for a comprehensive list of supported fields.
 
 ## Contributing
 
