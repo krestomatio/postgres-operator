@@ -25,17 +25,17 @@ This operator simplifies deployment and management of PostgreSQL databases withi
 1. **Install Operator:**
 ```bash
 # Ensure prerequisites are met
-kubectl apply -k https://github.com/krestomatio/postgres-operator/config/default?ref=v0.3.13
+kubectl apply -k https://github.com/krestomatio/postgres-operator/config/default?ref=v0.3.14
 ```
 
 2. **Configure Postgres Instance:**
-- Download and modify [this sample](https://raw.githubusercontent.com/krestomatio/postgres-operator/v0.3.13/config/samples/postgres_v1alpha1_postgres.yaml) file to reflect your specific instance. This file defines the desired configuration for your KeyDB deployment, including the chosen mode (standalone or readreplicas).
+- Download and modify [this sample](https://raw.githubusercontent.com/krestomatio/postgres-operator/v0.3.14/config/samples/postgres_v1alpha1_postgres.yaml) file to reflect your specific instance. This file defines the desired configuration for your KeyDB deployment, including the chosen mode (standalone or readreplicas).
 ```bash
-curl -sSL 'https://raw.githubusercontent.com/krestomatio/postgres-operator/v0.3.13/config/samples/postgres_v1alpha1_postgres.yaml' -o postgres_v1alpha1_postgres.yaml
+curl -sSL 'https://raw.githubusercontent.com/krestomatio/postgres-operator/v0.3.14/config/samples/postgres_v1alpha1_postgres.yaml' -o postgres_v1alpha1_postgres.yaml
 # modify postgres_v1alpha1_postgres.yaml
 
 # for readreplicas mode, use:
-# curl -sSL 'https://raw.githubusercontent.com/krestomatio/postgres-operator/v0.3.13/config/samples/postgres_v1alpha1_postgres_readreplicas.yaml' -o postgres_v1alpha1_postgres.yaml
+# curl -sSL 'https://raw.githubusercontent.com/krestomatio/postgres-operator/v0.3.14/config/samples/postgres_v1alpha1_postgres_readreplicas.yaml' -o postgres_v1alpha1_postgres.yaml
 ```
 
 3. **Deploy Postgres:**
@@ -65,7 +65,7 @@ kubectl delete -f postgres_v1alpha1_postgres.yaml
 
 2. **Uninstall Operator:**
 ```bash
-kubectl delete -k https://github.com/krestomatio/postgres-operator/config/default?ref=v0.3.13
+kubectl delete -k https://github.com/krestomatio/postgres-operator/config/default?ref=v0.3.14
 ```
 
 ## Configuration
