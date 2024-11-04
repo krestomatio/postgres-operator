@@ -1,0 +1,6 @@
+# {{ ansible_managed  }}
+{% include 'postgres_v1alpha1_postgres_readreplicas.yaml' %}
+
+{% if postgres_readreplicas_sample_extra_spec is defined and postgres_readreplicas_sample_extra_spec %}
+  {{ postgres_readreplicas_sample_extra_spec | indent(width=2) }}
+{% endif %}

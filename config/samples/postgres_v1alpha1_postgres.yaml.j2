@@ -1,0 +1,6 @@
+# {{ ansible_managed  }}
+{% include 'postgres_v1alpha1_postgres.yaml' %}
+
+{% if postgres_sample_extra_spec is defined and postgres_sample_extra_spec %}
+  {{ postgres_sample_extra_spec | indent(width=2) }}
+{% endif %}
