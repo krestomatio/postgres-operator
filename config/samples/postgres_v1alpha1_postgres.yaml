@@ -26,6 +26,9 @@ spec:
   ## But no more than 25 GiB
   # postgresPvcDataAutoexpansionCapGib: 25
 
+  # Default NetworkPolicy
+  # postgresNetpolOmit: false
+
   # Add extra pgbouncer config
   pgbouncerExtraConfig: |
     listen_backlog = 256
