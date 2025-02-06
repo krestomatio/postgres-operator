@@ -187,12 +187,8 @@ spec:
         serviceAccountName: postgres-operator-controller-manager
       deployments:
       - label:
-          app.kubernetes.io/component: manager
-          app.kubernetes.io/created-by: postgres-operator
-          app.kubernetes.io/instance: controller-manager
           app.kubernetes.io/managed-by: kustomize
-          app.kubernetes.io/name: deployment
-          app.kubernetes.io/part-of: postgres-operator
+          app.kubernetes.io/name: postgres-operator
           control-plane: controller-manager
         name: postgres-operator-controller-manager
         spec:

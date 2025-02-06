@@ -3,4 +3,4 @@
 # It should be run by config/default
 resources:
 - bases/postgres.krestomat.io_postgres.yaml
-#+kubebuilder:scaffold:crdkustomizeresource
+# +kubebuilder:scaffold:crdkustomizeresource
